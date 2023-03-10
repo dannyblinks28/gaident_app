@@ -182,7 +182,7 @@ class Home extends StatelessWidget {
                   progressScore: '80%',
                   subTitle: 'An assessment on how punctual...',
                   text: 'Puntuality',
-                  progressPercentageScore: 0.25,
+                  progressPercentageScore: 0.80,
                 ),
                 const SizedBox(height: 20),
                 Row(
@@ -196,120 +196,113 @@ class Home extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                Row(
-                  children: [
-                    Column(
-                      // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(
-                          'May',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                SizedBox(
+                  // height: 88,
+                  child: Row(
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'May',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        Text('27th'),
-                      ],
-                    ),
-                    SizedBox(width: 20),
-                    Container(
-                      width: 290,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border(
-                          left: BorderSide(
-                            width: 15,
-                            color: ConstantColors.bgColor,
-                            style: BorderStyle.solid,
-                          ),
-                        ),
+                          Text('27th'),
+                        ],
                       ),
-                      child: Container(width: 290,
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                          // borderRadius: BorderRadius.circular(15),
-                          color: ConstantColors.pbgColor,
-                          border: Border(
-                            left: BorderSide(
-                              width: 0,
-                              color: ConstantColors.dotUnselectColor,
-                              style: BorderStyle.solid,
-                            ),
-                            top: BorderSide(
-                              width: 1,
-                              color: ConstantColors.dotUnselectColor,
-                              style: BorderStyle.solid,
-                            ),
-                            right: BorderSide(
-                              width: 1,
-                              color: ConstantColors.dotUnselectColor,
-                              style: BorderStyle.solid,
-                            ),
-                            bottom: BorderSide(
-                              width: 1,
-                              color: ConstantColors.dotUnselectColor,
-                              style: BorderStyle.solid,
+                      SizedBox(width: 10),
+                      Expanded(
+                        child: Container(
+                          // height: 88,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: ConstantColors.bgColor,
+                              boxShadow: [
+                                BoxShadow(
+                                  offset: const Offset(0, 4),
+                                  blurRadius: 16,
+                                  color:
+                                      const Color(0xff969696).withOpacity(0.15),
+                                  spreadRadius: -2,
+                                )
+                              ]),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 22),
+                            margin: const EdgeInsets.only(left: 10),
+                            decoration: const BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(10),
+                                  bottomRight: Radius.circular(10),
+                                )),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'PTA Meeting',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        Icons.more_horiz,
+                                        color: ConstantColors.subtextColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/time.png',
+                                      width: 25,
+                                      height: 25,
+                                    ),
+                                    Text(
+                                      '10am - 11am',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 5),
+                                Row(
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/location.png',
+                                      width: 25,
+                                      height: 25,
+                                    ),
+                                    Text(
+                                      'School Premises',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 5),
+                              ],
                             ),
                           ),
                         ),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'PTA Meeting',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.more_horiz,
-                                    color: ConstantColors.subtextColor,
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Image.asset(
-                                  'assets/images/time.png',
-                                  width: 30,
-                                  height: 30,
-                                ),
-                                Text(
-                                  '10am - 11am',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Image.asset(
-                                  'assets/images/location.png',
-                                  width: 30,
-                                  height: 30,
-                                ),
-                                Text(
-                                  'School Premises',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 )
               ],
             ),

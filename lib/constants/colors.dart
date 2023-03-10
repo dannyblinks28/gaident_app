@@ -16,4 +16,11 @@ class ConstantColors {
   static const subtextColor = Color(0xFF777777);
   static const progregressbgColor = Color(0xFFECECEC);
   static const borderColor = Color(0xFFDEF3FF);
+  static const resultTextColor = Color(0xFF999999);
+  static const dividerColor = Color(0xFFC4C4C4);
+  static const containerBorderColor = Color(0xFFB3DAF6);
+  static const containerBgColor = Color(0xFFD1E9F9);
+  static const greyColor = Color(0xFF555555);
+  static const switchTextColor = Color(0xFFFF9355);
+  static const eventBgColor = Color(0xFFF3F3F3);
 }

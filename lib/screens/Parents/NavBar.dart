@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:proprietor_app/constants/colors.dart';
-import 'package:proprietor_app/screens/Parents/parentMenuPages/announcement.dart';
-import 'package:proprietor_app/screens/Parents/parentMenuPages/switch_account.dart';
+import 'package:proprietor_app/screens/Parents/parentNavBar/announcement.dart';
+import 'package:proprietor_app/screens/Parents/parentNavBar/results.dart';
+import 'package:proprietor_app/screens/Parents/parentNavBar/switch_account.dart';
+import 'package:proprietor_app/screens/Parents/profile.dart';
+import 'package:proprietor_app/screens/parents_login.dart';
 
 import '../../utils/screen_navigator.dart';
 
@@ -17,26 +20,34 @@ class NavBar extends StatelessWidget {
         padding: const EdgeInsets.all(20.0),
         child: ListView(
           children: [
-            Row(
-              children: [
-                CircleAvatar(
-                  child: Image.asset('assets/images/profile1.png'),
-                ),
-                SizedBox(width: 10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Mable Olu',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+            GestureDetector(
+              onTap: () {
+                nextScreenReplace(
+                  context,
+                  const Profile(),
+                );
+              },
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    child: Image.asset('assets/images/profile1.png'),
+                  ),
+                  SizedBox(width: 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Mable Olu',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Text('Primary 3A')
-                  ],
-                )
-              ],
+                      Text('Primary 3A')
+                    ],
+                  )
+                ],
+              ),
             ),
             SizedBox(height: 15),
             const Divider(
@@ -69,7 +80,12 @@ class NavBar extends StatelessWidget {
                   fontSize: 16,
                 ),
               ),
-              onTap: () => null,
+              onTap: () {
+                nextScreenPush(
+                  context,
+                  Results(),
+                );
+              },
             ),
             ListTile(
               leading: Image.asset(
@@ -164,7 +180,7 @@ class NavBar extends StatelessWidget {
               onTap: () {
                 nextScreenPush(
                   context,
-                  SwichAccounts(),
+                  const SwichAccounts(),
                 );
               },
             ),
@@ -181,7 +197,12 @@ class NavBar extends StatelessWidget {
                   color: ConstantColors.errorColor,
                 ),
               ),
-              onTap: () => null,
+              onTap: () {
+                nextScreenReplace(
+                  context,
+                  const ParentsLogin(),
+                );
+              },
             )
           ],
         ),

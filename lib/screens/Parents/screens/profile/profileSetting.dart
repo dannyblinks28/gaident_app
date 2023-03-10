@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:proprietor_app/screens/parents_login.dart';
 
-import '../../../constants/colors.dart';
-import '../../../utils/screen_navigator.dart';
-import '../home_parents.dart';
+import '../../../../constants/colors.dart';
+import '../../../../utils/screen_navigator.dart';
+import '../../profile.dart';
 
-class Settings extends StatelessWidget {
-  const Settings({super.key});
+class ProfileSettings extends StatelessWidget {
+  const ProfileSettings({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +18,25 @@ class Settings extends StatelessWidget {
               height: 200,
               decoration: const BoxDecoration(color: ConstantColors.bgColor),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [
+                children: [
                   Padding(
-                    padding: EdgeInsets.only(bottom: 20, left: 20),
+                    padding: const EdgeInsets.only(bottom: 20, left: 20),
+                    child: IconButton(
+                      onPressed: () {
+                        nextScreenPush(
+                          context,
+                          const Profile(),
+                        );
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        size: 30,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 20),
                     child: Text(
                       'Settings',
                       style: TextStyle(

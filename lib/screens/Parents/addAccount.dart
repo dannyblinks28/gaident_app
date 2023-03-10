@@ -3,19 +3,15 @@ import 'package:proprietor_app/constants/colors.dart';
 import 'package:proprietor_app/screens/Parents/home_parents.dart';
 import 'package:proprietor_app/utils/screen_navigator.dart';
 import 'package:proprietor_app/utils/widgets/TaxiButton.dart';
-import 'package:proprietor_app/utils/widgets/myTextField.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-import 'forgot_password.dart';
-
-class ParentsLogin extends StatefulWidget {
-  const ParentsLogin({super.key});
+class AddAccount extends StatefulWidget {
+  const AddAccount({super.key});
 
   @override
-  State<ParentsLogin> createState() => _ParentsLoginState();
+  State<AddAccount> createState() => _AddAccountState();
 }
 
-class _ParentsLoginState extends State<ParentsLogin> {
+class _AddAccountState extends State<AddAccount> {
   late final _emailController = TextEditingController();
   late final _passwordController = TextEditingController();
   bool _isObsecure = true;
@@ -31,19 +27,23 @@ class _ParentsLoginState extends State<ParentsLogin> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(height: 30),
-                Container(
-                  width: 200,
-                  child: Text(
-                    'Enter yout login details',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
+                const Text(
+                  'Login to an existing',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
                   ),
                 ),
-                SizedBox(height: 30),
+                const Text(
+                  'account',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                ),
+                SizedBox(height: 50),
                 Text(
-                  'Email/Username',
+                  'Full - name',
                   style: TextStyle(
                     fontSize: 16,
                   ),
@@ -139,18 +139,16 @@ class _ParentsLoginState extends State<ParentsLogin> {
                 TaxiButton(
                   title: 'Log In',
                   onPressed: () {
-                    //loginAccount(context);
+                    nextScreenReplace(
+                      context,
+                      HomeParents(),
+                    );
                   },
                 ),
                 Column(
                   children: [
                     TextButton(
-                      onPressed: () {
-                        nextScreen(
-                          context,
-                          ForgotPassword(),
-                        );
-                      },
+                      onPressed: () {},
                       child: Text(
                         'Forgot Password',
                         style: TextStyle(
@@ -167,33 +165,4 @@ class _ParentsLoginState extends State<ParentsLogin> {
       ),
     );
   }
-  /*void loginAccount(BuildContext context) {
-    int selectedIndex = 0;
-    SchoolModel schoolModel = SchoolModel(
-        email: _controllerEmail.text, password: _controllerPassword.text);
-    showLoadingDialog(context, 'Logging account.....');
-    var authResponse =
-        AuthService().login(_controllerEmail.text, _controllerPassword.text);
-    authResponse
-        .then((value) async => {
-              print("response 1-----${value.message}"),
-              Navigator.pop(context),
-              if (value.message == "Login successfully")
-                {
-                  await SharedPreferences.getInstance().then((v) async {
-                    await v.setString(
-                        'schoolId', value.schoolCredentials.schoolId);
-                    await v
-                        .setString("token", value.schoolCredentials.token)
-                        .then((value) {
-                      context.goNamed(AppRoute.dashboard.name,
-                          extra: selectedIndex);
-                    });
-                  })
-                }
-              else
-                {showToast(context, value.message, true)}
-            })
-        .onError((error, stackTrace) => {print(error.toString())});
-  }*/
 }

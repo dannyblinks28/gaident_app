@@ -48,7 +48,7 @@ class Announcement extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 20),
                       child: Text(
-                        'Change password',
+                        'Announcement',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
